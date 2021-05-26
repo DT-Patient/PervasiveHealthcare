@@ -29,34 +29,15 @@ Il progetto necessita dei seguenti requisiti:
 ## Documentazione del codice
 La documentazione del codice è disponibile [qui](https://enrignagna.github.io/PervasiveHealthcare/)
 
-
 ## Report del progetto LSS
 La documentazione del codice è disponibile [qui](https://github.com/enrignagna/PervasiveHealthcareReport)
 
-## Struttura delle directory / branch
-Il ramo è stato strutturato utilizzando git-flow. Il ramo principale è il ramo principale che contiene la versione finale del sistema. Ogni funzionalità richiedeva l'apertura di una filiale con lo stesso nome che viene chiusa solo al termine dell'implementazione della funzionalità stessa.
 
-##Bug reporting
-
+# Contributing
+Vedi il [Contributing File](./CONTRIBUTING.md).
 
 # Licenza
-Concesso in licenza con la licenza Apache, versione 2.0 (la "Licenza");
-non è possibile utilizzare questo file se non in conformità con la licenza.
-È possibile ottenere una copia della licenza all'indirizzo
-http://www.apache.org/licenses/LICENSE-2.0
-
-Una licenza permissiva le cui condizioni principali richiedono la conservazione del copyright e degli avvisi di licenza.
-I contributori forniscono una concessione esplicita di diritti di brevetto.
-Opere concesse in licenza, modifiche e opere più grandi possono essere distribuite in termini diversi e senza codice sorgente.
-
-Autorizzazioni:
-- Uso commerciale
-- Modifica Distribuzione
-- Uso del brevetto
-- Uso privato
-
-Limitazioni:
-- Garanzia di responsabilità sull'uso del marchio
+Vedi il [License File](./LICENSE).
 
 ## Autori e Copyright
 Autori:
