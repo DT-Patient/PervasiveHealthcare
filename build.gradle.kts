@@ -14,6 +14,20 @@ repositories {
     mavenCentral()
 }
 
+tasks.withType<ScalaCompile> {
+    scalaCompileOptions.additionalParameters = listOf(
+            "-feature",
+            "-language:implicitConversions",
+            "-language:higherKinds",
+            "-Xfatal-warnings",
+            "-Xlint",
+            "-Wunused:imports",
+            "-Wunused:locals",
+            "-Wunused:params",
+            "-Wunused:privates"
+    )
+}
+
 dependencies {
     val scalaVersion = "2.12"
     implementation("org.scala-lang:scala-library:$scalaVersion")
@@ -54,6 +68,7 @@ tasks.jacocoTestReport {
         html.destination = file("${buildDir}/reports/jacoco/jacocoHtml")
     }
 }
+
 
 gitSemVer {
     version = computeGitSemVer()
