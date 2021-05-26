@@ -23,8 +23,8 @@ L'applicazione è stata progettata facendo particolare attenzione al dominio e a
 
 ## Dipendenze
 Il progetto necessita dei seguenti requisiti:
-- linguaggio Scala
-- installazione di Spark
+- linguaggio [Scala](https://www.scala-lang.org/)
+- installazione di [Spark](https://spark.apache.org/docs/latest/)
 
 ## Documentazione del codice
 La documentazione del codice è disponibile [qui](https://enrignagna.github.io/PervasiveHealthcare/)
