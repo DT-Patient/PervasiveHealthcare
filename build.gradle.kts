@@ -21,7 +21,6 @@ tasks.withType<ScalaCompile> {
             "-language:higherKinds",
             "-Xfatal-warnings",
             "-Xlint",
-            "-Wunused:imports",
             "-Wunused:locals",
             "-Wunused:params",
             "-Wunused:privates"
