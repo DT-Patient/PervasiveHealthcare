@@ -53,7 +53,41 @@ class GeneralInfoTest extends AnyFreeSpec {
     None, None
   )
 
+  val generalInfo1: GeneralInfo = GeneralInfo(
+    BloodGroup(BloodType.AB, Rh.NEGATIVE),
+    Weight(60),
+    Height(167),
+    Some(Allergies().addNewAllergy(
+      Allergy(
+        AllergyClass.DRUG_ALLERGY,
+        AllergyDescription("Good")
+      )
+    )),
+    Some(PreviousPathologies().addNewPathology(
+      Pathology(
+        PathologyName("Piroplasmosi"),
+        DetectionDate(LocalDate.now()),
+        PathologySeverity(
+          "Grave",
+          PathologySeverityLevels.TWO
+        )
+      )
+    )),
+    Some(PrescriptionHistory().addNewPrescription(
+      Prescription(
+        PrescriptionDate(),
+        PrescriptionInfo("Antiviral")
+      )
+    )),
+    Some(ExamHistory().addNewExam(
+      Exam(
+        ExamDate(),
+        ExamReport("Hearth disease"),
+        ExamInfo("Checked the hearth rhythm"))
+    ))
+  )
 
+  val prescription: Prescription = Prescription(prescriptionDate = PrescriptionDate(), prescriptionInfo = PrescriptionInfo("Antiviral"))
   "A general info should have" - {
     "a blood group" in {
       assert(generalInfo.bloodGroup != null)
@@ -85,6 +119,21 @@ class GeneralInfoTest extends AnyFreeSpec {
     }
     "a exam history" in {
       assert(generalInfo.examHistory.isEmpty)
+    }
+  }
+
+  "A general info1 could have" - {
+    "some allergies" in {
+      assert(generalInfo1.allergies.nonEmpty)
+    }
+    "some previous pathologies" in {
+      assert(generalInfo1.previousPathologies.nonEmpty)
+    }
+    "a prescription history" in {
+      assert(generalInfo1.prescriptionHistory.nonEmpty)
+    }
+    "a exam history" in {
+      assert(generalInfo1.examHistory.nonEmpty)
     }
   }
 }

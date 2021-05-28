@@ -5,66 +5,42 @@
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/enrignagna/PervasiveHealthcare)
 ![GitHub issues](https://img.shields.io/github/issues/enrignagna/PervasiveHealthcare)
 [![CodeFactor](https://www.codefactor.io/repository/github/enrignagna/pervasivehealthcare/badge)](https://www.codefactor.io/repository/github/enrignagna/pervasivehealthcare)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/4877/badge)](https://bestpractices.coreinfrastructure.org/projects/4877)
+
 
 # Pervasive Healthcare
 
 <!---Sottotitolo / Slogan / Descrizione breve-->
-> Project for course of Pervasive Computing and Software Systems Laboratory.
-> The project was born with the aim of creating a Digital Twin regarding the patient's figure in the healthcare sector. Specifically, the goal is to create a software system that allows a patient to monitor his clinical past and various professionals to update this history quickly and easily.
-> 
+Questo progetto ha come obiettivo quello di realizzare un Digital Twin per quanto riguarda la figura del paziente in ambito healthcare. 
+Questo sistema deve consentire al paziente fisico di avere sempre a disposizione i propri dati e le proprie informazioni mediche aggiornate.
+Il sistema permette l'interazione da parte delle figure mediche professionali, quali medico di base, medici specialisti,
+infermieri e soccorritori in tempo reale con il gemello digitale del paziente trattato.
+Il paziente digitale deve fornire, oltre all'accesso a tutti i dati da parte del paziente fisico anche un sistema di previsione per patologie future,
+in modo da supportare i medici in una assistenza migliore nei confronti del paziente.
 
-Read this in other languages: [Italiano](README.IT.md).
+L'applicazione è stata progettata facendo particolare attenzione al dominio e agli aspetto salienti di esso. Il Domain Driven Design ha accompagnato l'intero ciclo vitale dell'applicazione e con esso è stata applicata anche la metodologia DevOps, che tramite l'utilizzo di Build Automation e di Continuous Integration, ha agevolato notevolmente il processo di sviluppo.
 
-<!---*## Immagini e GIF
 
-![Recordit GIF](http://g.recordit.co/iLN6A0vSD8.gif)
-*-->
-# Index
+## Dipendenze
+Il progetto necessita dei seguenti requisiti:
+- linguaggio [Scala](https://www.scala-lang.org/)
+- installazione di [Spark](https://spark.apache.org/docs/latest/)
 
-- [How to start]
-- [Licence]
+## Documentazione del codice
+La documentazione del codice è disponibile [qui](https://enrignagna.github.io/PervasiveHealthcare/)
 
-# How to start
-The system shows a client-server architecture, so the deployment and commissioning involves starting the server at first and then each patient or doctor will be able to connect to the system via their client.
+## Report del progetto LSS
+La documentazione del codice è disponibile [qui](https://github.com/enrignagna/PervasiveHealthcareReport)
 
-## Dependencies
-The following requirements are required for commissioning the project:
 
-- Scala language
-- Spark installation
+# Contributing
+Vedi il [Contributing File](./CONTRIBUTING.md).
 
-## Documentation
-The project documentation is divided into two parts:
+# Licenza
+Vedi il [License File](./LICENSE).
 
-- implementation documentation accessible at this [link](https://enrignagna.github.io/PervasiveHealthcare/) 
-- report, reachable at this link: 
-
-## Directory structure / branch
-The branch was structured using git-flow. The main branch is the main which contains the final version of the system. Each feature required the opening of a branch of the same name which is closed only at the end of the implementation of the feature itself.
-
-# Licence
-## General licence
-Licensed under the Apache License, Version 2.0 (the "License");
-you may not use this file except in accordance with the license.
-A copy of the license can be obtained at
-http://www.apache.org/licenses/LICENSE-2.0
-
-A permissive license whose main conditions require preservation of copyright and license notices. Contributors provide an express grant of patent rights. Licensed works, modifications, and larger works may be distributed under different terms and without source code.
-
-Permissions
-- Commercial use
-- Modification
-- Distribution
-- Patent use
-- Private use
-    
-Limitations
-- Trademark use
-- Liability
-- Warranty
-
-## Authors and Copyright
-Authors: 
+## Autori e Copyright
+Autori:
 - [Battistini Ylenia](https://github.com/yleniaBattistini)
 - [Gnagnarella Enrico](https://github.com/enrignagna)
 - [Scucchia Matteo](https://github.com/scumatteo)

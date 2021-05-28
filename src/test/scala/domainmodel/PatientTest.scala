@@ -17,6 +17,7 @@
 package domainmodel
 
 import domainmodel.Patient._
+import domainmodel.generalinfo.{BloodGroup, BloodType, GeneralInfo, Height, Rh, Weight}
 import org.junit.runner.RunWith
 import org.scalatest.freespec._
 import org.scalatestplus.junit.JUnitRunner
@@ -71,6 +72,46 @@ class PatientTest extends AnyFreeSpec {
       assert(patient.province.nonEmpty)
     }
   }
+
+  Patient.updateGeneralInfo(patient, GeneralInfo(
+    BloodGroup(BloodType.AB, Rh.NEGATIVE),
+    Weight(68.5),
+    Height(172),
+    None, None,
+    None, None
+  ))
+
+
+  "An updated patient should have" - {
+    "a name" in {
+      assert(patient.name.nonEmpty)
+    }
+    "a surname" in {
+      assert(patient.surname.nonEmpty)
+    }
+    "a fiscal code" in {
+      assert(patient.cf.value.nonEmpty)
+    }
+    "a birthday date" in {
+      assert(patient.birthDate != null)
+    }
+    "a gender type" in {
+      assert(patient.gender != null)
+    }
+    "an address" in {
+      assert(patient.address.nonEmpty)
+    }
+    "a city" in {
+      assert(patient.residenceCity.nonEmpty)
+    }
+    "a province" in {
+      assert(patient.province.nonEmpty)
+    }
+    "a general info" in {
+      assert(patient.generalInfo.isEmpty)
+    }
+  }
+
 
 
 }

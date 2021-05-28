@@ -12,7 +12,7 @@ jobs:
       #Generate scaladoc of the project, through the specific script.
       - name: Generate documentation
         shell: bash
-        run: .github/build-steps/docs.sh
+        run: .github/scripts/docs.sh
       #Push scaladoc on Github Pages by the action ghaction-github-pages@v2
       - name: Deploy to GitHub Pages
         if: success()

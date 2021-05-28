@@ -8,7 +8,7 @@ jobs:
     strategy:
       matrix:
         os: [windows, macos, ubuntu]
-        jvm_version: [8, 11, 14]
+        jvm_version: [8, 11, 14, 15]
     runs-on: ${{ matrix.os }}-latest
     env:
       JAVA_VERSION: ${{ matrix.jvm_version }}
@@ -20,55 +20,16 @@ jobs:
         with:
           fetch-depth: 0
           submodules: recursive
-      - name: Fetch tags #Fetch all tags from remote repository
-        shell: bash
-        run: git fetch --tags -f
-      - name: Populate TAG and BRANCH environment variables
-        shell: bash
-        run: |
-          TAG=$(git describe --tags --exact-match HEAD || echo '')
-          echo "Current tag is: '$TAG'"
-          echo "TAG=$TAG" >> $GITHUB_ENV
-          BRANCH=$([ -z "$TAG" ] && echo ${GITHUB_REF#refs/heads/} || echo $TAG)
-          echo "Current branch is: '$BRANCH'"
-          echo "BRANCH=$BRANCH" >> $GITHUB_ENV
       # Install the JDK
       - uses: joschi/setup-jdk@v2.3.0
         with:
           java-version: ${{ matrix.jvm_version }}
-      # Install additional packages, if are present some specific configurations.
-      - name: Configure Linux
-        shell: bash
-        if: ${{ contains(matrix.os, 'ubuntu') }}
-        run: |
-          if [ -x .github/scripts/configure_linux ]; then
-            .github/scripts/configure_linux
-          fi
-      - name: Configure MacOS X
-        shell: bash
-        if: ${{ contains(matrix.os, 'macos') }}
-        run: |
-          if [ -f .github/scripts/configure_macos ]; then
-            .github/scripts/configure_macos
-          fi
-      - name: Configure the Windows Pagefile
-        if: ${{ contains(matrix.os, 'windows') }}
-        uses: al-cheb/configure-pagefile-action@v1.2
-      - name: Configure Windows
-        shell: bash
-        if: ${{ contains(matrix.os, 'windows') }}
-        run: |
-          if [ -f .github/scripts/configure_windows ]; then
-            .github/scripts/configure_windows
-          fi
       - name: Build
         shell: bash
-        run: .github/build-steps/build.sh
+        run: .github/scripts/build.sh
       - name: Check
         shell: bash
-        run: .github/build-steps/check.sh
+        run: .github/scripts/check.sh
         #Upload coverage report to Codecov by action "codecov/codecov-action@v1"
       - name: CodeCov
         uses: codecov/codecov-action@v1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
