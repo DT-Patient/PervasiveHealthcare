@@ -18,8 +18,8 @@
 
 package domainmodel.generalpractitionerinfo
 
-import java.time.{LocalDate, Year}
-
+import java.time.{LocalDate}
+import domainmodel.generalpractitionerinfo.BookingVisitHistory.BookingVisitHistory
 import domainmodel.utility.Description
 import org.junit.runner.RunWith
 import org.scalatest.freespec._
@@ -30,19 +30,35 @@ class BookingVisitHistoryTest extends AnyFreeSpec {
   val visit: Visit = Visit(VisitDate())
   val description: Description = Description("visit for shoulder surgery")
   val bookingDate :LocalDate = LocalDate.of(2021, 10, 2)
-  val bookingVisits: BookingVisit = BookingVisit(1, visit, description, bookingDate)
+  val bookingVisit: BookingVisit = BookingVisit(1, visit, description, bookingDate)
   "A booking visits should have" - {
     "an id" in {
-      assert(bookingVisits.bookingId == 1)
+      assert(bookingVisit.bookingId == 1)
     }
     "a visit information" in {
-      assert(bookingVisits.visit == visit)
+      assert(bookingVisit.visit == visit)
     }
     "a description" in {
-      assert(bookingVisits.description == description)
+      assert(bookingVisit.description == description)
     }
     "a visit date" in {
-      assert(bookingVisits.bookingData == bookingDate)
+      assert(bookingVisit.bookingData == bookingDate)
+    }
+  }
+
+  val bookingVisitHistory: BookingVisitHistory = BookingVisitHistory()
+
+  "Booking visit history" - {
+    "should be" - {
+      "a set" in {
+        assert(bookingVisitHistory.history.isInstanceOf[Set[BookingVisit]])
+      }
+      "initially empty" in {
+        assert(bookingVisitHistory.history.isEmpty)
+      }
+    }
+    "can be updated" in {
+      assert(bookingVisitHistory.addNewBookingVisit(bookingVisit).history.nonEmpty)
     }
   }
 }
