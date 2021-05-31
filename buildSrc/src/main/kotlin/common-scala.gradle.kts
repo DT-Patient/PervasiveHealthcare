@@ -42,9 +42,9 @@ spotless {
 tasks.jacocoTestReport {
     reports {
         xml.isEnabled = true
-        xml.destination = file("${buildDir}/reports/jacoco/report.xml")
+        xml.destination = file("${rootDir.absolutePath}/build/reports/jacoco/report.xml")
         html.isEnabled = true
-        html.destination = file("${buildDir}/reports/jacoco/jacocoHtml")
+        html.destination = file("${rootDir.absolutePath}/build/reports/jacoco/jacocoHtml")
     }
 }
 
