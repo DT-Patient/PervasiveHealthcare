@@ -17,29 +17,11 @@
  */
 
 plugins {
-    jacoco
     scala
 }
 repositories {
     mavenCentral()
     jcenter()
-}
-
-tasks.jacocoTestReport {
-    reports {
-        xml.isEnabled = true
-        xml.destination = file("${buildDir}/reports/jacoco/report.xml")
-        html.isEnabled = true
-        html.destination = file("${buildDir}/reports/jacoco/jacocoHtml")
-    }
-}
-
-tasks.test {
-    finalizedBy(tasks.jacocoTestReport) // report is always generated after tests run
-}
-
-tasks.jacocoTestReport {
-    dependsOn(tasks.test) // tests are required to run before generating the report
 }
 
 dependencies {
