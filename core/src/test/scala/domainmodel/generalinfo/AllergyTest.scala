@@ -22,7 +22,7 @@ import org.scalatestplus.junit.JUnitRunner
 import org.junit.runner.RunWith
 import org.scalatest._
 import freespec._
-import domainmodel.generalinfo.Allergies.Allergies
+import domainmodel.generalinfo.Allergies._
 
 @RunWith(classOf[JUnitRunner])
 class AllergyTest extends AnyFreeSpec {

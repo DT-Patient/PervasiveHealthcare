@@ -18,12 +18,13 @@
 
 package domainmodel.generalpractitionerinfo
 
-import java.time.{LocalDate}
-import domainmodel.generalpractitionerinfo.BookingVisitHistory.BookingVisitHistory
+import domainmodel.generalpractitionerinfo.BookingVisitHistory._
 import domainmodel.utility.Description
 import org.junit.runner.RunWith
 import org.scalatest.freespec._
 import org.scalatestplus.junit.JUnitRunner
+
+import java.time.LocalDate
 
 @RunWith(classOf[JUnitRunner])
 class BookingVisitHistoryTest extends AnyFreeSpec {
