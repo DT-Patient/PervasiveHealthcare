@@ -38,27 +38,5 @@ jobs:
        #Upload coverage report to Codecov by action "codecov/codecov-action@v1"
       - name: CodeCov
         uses: codecov/codecov-action@v1
-  Build-Success:
-    runs-on: ubuntu-latest
-    needs: Build
-   #If build success, create artifact and upload on GithubActions
-    steps:
-      - shell: bash
-        run: touch ok
-        #Action to upload artifact
-      - uses: actions/upload-artifact@v2
         with:
-          name: success
-          path: ok
-  CI:
-    needs: Build-Success
-    if: always()
-    runs-on: ubuntu-latest
-    #To complete CI pipeline, download artifact created previously.
-    steps:
-      #Action to download artifact
-      - uses: actions/download-artifact@v2
-        with:
-          name: success
-      - shell: bash
-        run: '[ -f ok ]'
+          token: ${{ secrets.CODECOV_TOKEN }}

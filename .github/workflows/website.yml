@@ -9,6 +9,9 @@ jobs:
       #Execute control of repository
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          submodules: recursive
       #Generate scaladoc of the project, through the specific script.
       - name: Generate documentation
         shell: bash

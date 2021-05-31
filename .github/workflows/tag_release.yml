@@ -8,16 +8,20 @@ jobs:
     steps:
       - name: Check out code
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          submodules: recursive
       - name: Initialize mandatory git config
         run: |
           git config user.name "GitHub Actions"
           git config user.email noreply@github.com
       - name: Setup release information
-        #get version name from app_versions.gradle file (5.6.2)
+        #get version name from app_versions.gradle file
         run: |
           versionName=`sed '2q;d' app_versions.gradle | cut -d "=" -f2 | xargs`
           echo "VERSION_NAME=$versionName" >> $GITHUB_ENV
       - name: Extract release notes
+        #get release note from app_versions.gradle file
         run: |
           release_note=`sed '1q;d' app_versions.gradle | cut -d "=" -f2 | xargs`
           echo "RELEASE_NOTE=$release_note" >> $GITHUB_ENV
