@@ -30,10 +30,6 @@ The application has been designed with particular attention to the domain and th
 #### Software Quality
 
 [![CodeFactor](https://www.codefactor.io/repository/github/dt-patient/pervasivehealthcare/badge)](https://www.codefactor.io/repository/github/dt-patient/pervasivehealthcare)
-![Codecov](https://img.shields.io/codecov/c/github/DT-Patient/PervasiveHealthcare)
-![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability-percentage/DT-Patient/PervasiveHealthcare)
-![Code Climate maintainability](https://img.shields.io/codeclimate/issues/DT-Patient/PervasiveHealthcare)
-![Code Climate maintainability](https://img.shields.io/codeclimate/tech-debt/DT-Patient/PervasiveHealthcare)
 [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=DT-Patient_PervasiveHealthcare&metric=bugs)](https://sonarcloud.io/dashboard?id=DT-Patient_PervasiveHealthcare)
 [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=DT-Patient_PervasiveHealthcare&metric=code_smells)](https://sonarcloud.io/dashboard?id=DT-Patient_PervasiveHealthcare)
 [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=DT-Patient_PervasiveHealthcare&metric=ncloc)](https://sonarcloud.io/dashboard?id=DT-Patient_PervasiveHealthcare)
@@ -61,10 +57,10 @@ The project to be executed requires the following requirements:
 - Spark. See how to install [here](https://spark.apache.org/docs/latest/)
 
 ## Code documentation
-Documentation of the code is available [here](https://enrignagna.github.io/PervasiveHealthcare/)
+Documentation of the code is available [here](https://dt-patient.github.io/PervasiveHealthcare/)
 
 ## Report for the LSS course
-The project report for the LSS course is available [here](https://github.com/enrignagna/PervasiveHealthcareReport)
+The project report for the LSS course is available [here](https://dt-patient.github.io/PervasiveHealthcare/)
 
 
 # Contributing
