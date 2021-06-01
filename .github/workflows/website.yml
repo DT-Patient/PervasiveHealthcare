@@ -17,11 +17,33 @@ jobs:
         shell: bash
         run: .github/scripts/docs.sh
       #Push scaladoc on Github Pages by the action ghaction-github-pages@v2
+      - name: Merge documentation
+        shell: bash
+        run: |
+          rm -rf public
+          mkdir public
+          mv core/build/docs/scaladoc public/core
+          mv client/build/docs/scaladoc public/client
+      - name: Generate index page
+        run: |
+          cat > public/index.html <<EOL
+          <!doctype html>
+          <html>
+            <head>
+              <title>Scaladoc deployed!</title>
+            </head>
+            <body>
+              <h2>Submodules of project:</h2>
+              <p><a href="./core/index.html">Core</a></p>
+              <p><a href="./client/index.html">Client</a></p>
+            </body>
+          </html>
+          EOL
       - name: Deploy to GitHub Pages
         if: success()
         uses: crazy-max/ghaction-github-pages@v2
         with:
           target_branch: gh-pages
-          build_dir: build/docs/scaladoc #Folder of generated scaladoc
+          build_dir: public #Folder of generated scaladoc
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
